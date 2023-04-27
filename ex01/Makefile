@@ -52,12 +52,13 @@ clean:
 	@$(PRINTF) "$(CYAN)Cleaning up object files in $(BIN)...$(DEFAULT)\n"
 	@$(RM) $(OBJ)
 
-fclean: clean
+fclean:
+	@$(MAKE) clean
 	@$(PRINTF) "$(CYAN)Removed $(NAME)$(DEFAULT)\n"
-	@$(RM) $(OBJ)
 	@$(RM) $(BIN)
 
-re: fclean
+re:
+	@$(MAKE) fclean
 	@make all
 
 git:
