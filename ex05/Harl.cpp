@@ -24,7 +24,7 @@ since last month." << std::endl;
 void	Harl::error( void ) {
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout <<  "This is unacceptable! I want to speak to the manager now." \
-			<< std::endl;
+<< std::endl;
 }
 
 void	Harl::complain( std::string level ) {
