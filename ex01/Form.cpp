@@ -13,8 +13,8 @@ Form::Form(std::string name, int requiredGrade, int executeGrade) : \
 	std::cout << "\x1b[35m""[Form]: constructor has called!""\x1b[0m" << std::endl;
 }
 
-Form::Form(Form const &ref) : _name(ref.getName()), _requiredGrade(getRequiredGrade()), \
-	_executeGrade(getExecuteGrade()), _isSigned(false)
+Form::Form(Form const &ref) : _name(ref.getName()), _requiredGrade(ref.getRequiredGrade()), \
+	_executeGrade(ref.getExecuteGrade()), _isSigned(false)
 {
 	if (getRequiredGrade() < 1 || getExecuteGrade() < 1)
 		throw Form::GradeTooHighException();

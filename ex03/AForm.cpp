@@ -2,7 +2,7 @@
 
 /* Constructor and Destructor call */
 AForm::AForm(std::string name, int requiredGrade, int executeGrade) : \
-	_name(name), _requiredGrade(requiredGrade), _executeGrade(executeGrade), _isSigned(false)
+	_name(name), _requiredGrade(requiredGrade), _executeGrade(executeGrade), _type("AFORM"), _isSigned(false)
 {
 	if (getRequiredGrade() < 1 || getExecuteGrade() < 1)
 		throw AForm::GradeTooHighException();
@@ -12,7 +12,7 @@ AForm::AForm(std::string name, int requiredGrade, int executeGrade) : \
 }
 
 AForm::AForm(AForm const &ref) : _name(ref.getName()), _requiredGrade(ref.getRequiredGrade()), \
-	_executeGrade(ref.getExecuteGrade()), _isSigned(false)
+	_executeGrade(ref.getExecuteGrade()), _type(ref.getType()), _isSigned(false)
 {
 	if (getRequiredGrade() < 1 || getExecuteGrade() < 1)
 		throw AForm::GradeTooHighException();
@@ -61,6 +61,16 @@ const std::string& AForm::getName() const
 const bool& AForm::getIsSigned() const
 {
 	return (_isSigned);
+}
+
+const std::string& AForm::getType() const
+{
+	return (_type);
+}
+
+void AForm::setType(const std::string& type)
+{
+	_type = type;
 }
 
 /* member function */
