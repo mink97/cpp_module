@@ -1,8 +1,8 @@
 SRC = main.cpp Bureaucrat.cpp
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CDEBUG = -g -fsanitize=address
 RM = rm -f
-CC = c++
+CXX = c++
 SRC_DIR = .
 OBJ_DIR = .
 BIN_DIR = .
@@ -39,14 +39,14 @@ all: $(NAME)
 
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $@
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 	@$(PRINTF) "\r%100s\r$(GREEN)$(BIN) is up to date!$(DEFAULT)\n"
 #	@make clean
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@$(eval SRC_COUNT = $(shell expr $(SRC_COUNT) + 1))
 	@$(PRINTF) "\r%100s\r[ %d/%d (%d%%) ] Compiling $(BLUE)$<$(DEFAULT)..." "" $(SRC_COUNT) $(SRC_COUNT_TOT) $(SRC_PCT)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@$(PRINTF) "$(CYAN)Cleaning up object files in $(BIN)...$(DEFAULT)\n"

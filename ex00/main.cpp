@@ -8,7 +8,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	std::cout << "----------TooLowException----------" << std::endl;
 	try
@@ -17,7 +17,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 
 	std::cout << "----------TooHighException----------" << std::endl;
@@ -32,7 +32,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 
 	std::cout << "----------TooLowException----------" << std::endl;
@@ -47,7 +47,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 
 }

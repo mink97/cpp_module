@@ -13,7 +13,7 @@ int main() {
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << e.what() << '\n';
 	}
 	std::cout << "\n----------form1----------" << std::endl;
 	std::cout << form1 << std::endl;

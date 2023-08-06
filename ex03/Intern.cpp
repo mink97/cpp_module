@@ -51,7 +51,7 @@ AForm* Intern::makeForm(std::string type, std::string name)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "intern failed to make " << type << " Form because " << e.what() << '\n';
+		std::cout << "intern failed to make " << type << " Form because " << e.what() << '\n';
 	}
 	return (NULL);
 }
