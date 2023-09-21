@@ -6,9 +6,10 @@ int main()
 {
 	std::srand(std::time(NULL));
 	Span sp = Span(10000);
+
 	try
 	{
-		sp.shortestSpan();
+		std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -16,17 +17,21 @@ int main()
 	}
 	try
 	{
-		sp.longestSpan();
+		std::cout << "longest span: " << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		sp.addRange(10000);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	for (int i = 0; i < 10000; i++)
-	{
-		sp.addNumber(std::rand());
-	}
 	try
 	{
 		sp.addNumber(4);
@@ -36,7 +41,7 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	std::cout << "shortest span is " << sp.shortestSpan() << std::endl;
+	std::cout << "longest span is " << sp.longestSpan() << std::endl;
 	return 0;
 }

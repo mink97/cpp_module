@@ -48,17 +48,29 @@ void	Span::addNumber(int num)
 	_vec.push_back(num);
 }
 
+void	Span::addRange(int num)
+{
+	if (_vec.size() + num > _capacity)
+		throw MaxStoreException();
+	for (int i = 0; i < num; i++)
+	{
+		this->addNumber(std::rand());
+	}
+}
+
 unsigned int Span::shortestSpan()
 {
 	if (_vec.size() < 2)
 		throw NoSpanException();
 	std::vector<int> tmp = _vec;
 	std::sort(tmp.begin(), tmp.end());
-	unsigned int ans = *(tmp.begin() + 1) - *tmp.begin();
-	for (std::vector<int>::iterator itr = (tmp.begin() + 1); itr != tmp.end(); itr++)
+	unsigned int ans = tmp[1] - tmp[0];
+	unsigned int size = tmp.size();
+	for (size_t i = 2; i < size; i++)
 	{
-		if (static_cast<unsigned int>(*(itr + 1) - *(itr)) < ans)
-			ans = *(itr + 1) - *(itr);
+		unsigned int diff = static_cast<unsigned int>(tmp[i] - tmp[i - 1]);
+		if (diff < ans)
+			ans = diff;
 	}
 	return (ans);
 }
