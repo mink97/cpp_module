@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-template<typename T>
-void iter(T* arr, std::size_t len, void (*func)(T&))
+template<typename T , typename FUNC>
+void iter(T* arr, std::size_t len, FUNC func)
 {
 	for (std::size_t i = 0; i < len; i++)
 	{
