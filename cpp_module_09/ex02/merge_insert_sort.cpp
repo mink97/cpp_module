@@ -11,7 +11,6 @@ void swap(T& a, T& b)
 	b = tmp;
 }
 
-
 template<typename T>
 void insertionSort(T& arr, size_t start, size_t end)
 {
@@ -25,6 +24,7 @@ void insertionSort(T& arr, size_t start, size_t end)
 		}
 	}
 }
+
 template<typename T>
 void merge(T& arr, size_t start, size_t end)
 {

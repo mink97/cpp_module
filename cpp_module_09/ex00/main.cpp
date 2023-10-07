@@ -33,11 +33,8 @@ int main(int argc, char **argv)
 	}
 	std::string line;
 	std::getline(input, line);
-	while (true)
+	while (std::getline(input, line))
 	{
-		std::getline(input, line);
-		if (input.eof())
-			break;
 		try
 		{
 			BitcoinExchange::getValue(line, data);
@@ -50,7 +47,6 @@ int main(int argc, char **argv)
 		{
 			std::cout << e.what() << '\n';
 		}
-
 	}
 }
 
