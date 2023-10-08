@@ -53,9 +53,8 @@ int main(int argc, char** argv)
 	{
 		std::cout << *itr << " ";
 	}
-	std::vector<int> sortedVec = vec;
 	std::cout << "\nafter:   ";
-	PmergeMe::mergeInsertionSort(sortedVec, 0, sortedVec.size());
+	std::vector<int> sortedVec = PmergeMe::mergeInsertionSort(vec, 0, vec.size());
 	for (std::vector<int>::iterator itr = sortedVec.begin(); itr != sortedVec.end(); itr++)
 	{
 		std::cout << *itr << " ";
