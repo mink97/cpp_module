@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include <vector>
  
 class PmergeMe {
 	private:

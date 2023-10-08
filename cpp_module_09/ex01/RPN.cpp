@@ -42,6 +42,8 @@ int RPN::calculte(std::string arg)
 				tmpStack.push(a * b);
 				break;
 			case '/':
+			    if (b == 0)
+                    throw std::runtime_error("Division by zero");
 				tmpStack.push(a / b);
 				break;
 			case '+':
