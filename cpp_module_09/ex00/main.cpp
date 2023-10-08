@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-
 	std::ifstream input(argv[1]);
 	if (!input.is_open())
 	{
@@ -33,6 +32,11 @@ int main(int argc, char **argv)
 	}
 	std::string line;
 	std::getline(input, line);
+	if (line != "date | value")
+	{
+		std::cout << "Error: invalid file." << std::endl;
+		return (1);
+	}
 	while (std::getline(input, line))
 	{
 		try
@@ -49,6 +53,3 @@ int main(int argc, char **argv)
 		}
 	}
 }
-
-// static 함수로 바꾸기.
-// input.txt파일 받아서 처리하는 부분 추가하기

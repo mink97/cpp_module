@@ -41,16 +41,13 @@ void BitcoinExchange::getData(const std::string& arg, std::map<int, float>& data
 	std::string::size_type pos = line.find(",");
 	if (pos == std::string::npos || line.substr(0, pos) != "date" || line.substr(pos + 1) != "exchange_rate")
 		throw BadInputException();
-	while (true)
+	while (std::getline(in, line))
 	{
-		std::getline(in, line);
-		if (in.eof())
-			break;
 		pos = line.find(",");
 		if (pos == std::string::npos)
 			throw BadInputException();
 		int date = checkDate(line.substr(0, pos));
-		float exRate = std::strtod(line.substr(pos + 1).c_str(), &endPoint);
+		float exRate = static_cast<float>(std::strtod(line.substr(pos + 1).c_str(), &endPoint));
 		// std::cout << "exRate : " << exRate << std::endl;
 		data[date] = exRate;
 	}
